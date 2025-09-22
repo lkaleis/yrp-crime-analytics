@@ -2,14 +2,14 @@ import os
 import requests
 import pandas as pd
 
-csv_path = "data/raw/yrp_crime_full.csv"
+csv_path = "data/raw/yrp_crime_ytd.csv"
 
 # If CSV already exists, skip fetching from API
 if os.path.exists(csv_path):
     print(f"{csv_path} already exists. Loading from CSV...")
     df = pd.read_csv(csv_path)
 else:
-    url = "https://services8.arcgis.com/lYI034SQcOoxRCR7/arcgis/rest/services/Occurrence_2016_to_2019/FeatureServer/0/query"
+    url = "https://services8.arcgis.com/lYI034SQcOoxRCR7/arcgis/rest/services/Occurrence/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json"
 
     all_data = []
     chunk_size = 2000
