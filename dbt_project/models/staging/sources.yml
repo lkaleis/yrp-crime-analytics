@@ -1,0 +1,54 @@
+version: 2
+
+sources:
+  - name: york_crime        # source schema (your database schema name)
+    schema: public          # adjust if not in "public"
+    tables:
+      - name: stg_yrp_crime_historical
+        description: "York Region Police crime historical data (2016–2019)"
+        columns:
+          - name: UniqueIdentifier
+            description: "Unique record ID"
+            tests:
+              - not_null
+              - unique
+          - name: occ_date
+            description: "Occurrence date"
+          - name: case_type_pubtrans
+            description: "Case type (public transport)"
+          - name: LocationCode
+            description: "Location code"
+          - name: municipality
+            description: "Municipality of occurrence"
+          - name: Special_grouping
+            description: "Special grouping category"
+          - name: OBJECTID
+            description: "Object ID"
+          - name: Shooting
+            description: "Indicates if shooting involved"
+          - name: occ_id
+            description: "Occurrence ID"
+          - name: hate_crime
+            description: "Flag for hate crime"
+          - name: case_status
+            description: "Case status"
+          - name: occ_type
+            description: "Occurrence type"
+      
+      - name: stg_yrp_crime_ytd
+        description: "York Region Police crime year-to-date data (refreshed monthly)"
+        columns:
+          - name: UniqueIdentifier
+          - name: occ_date
+          - name: case_type_pubtrans
+          - name: LocationCode
+          - name: municipality
+          - name: Special_grouping
+          - name: OBJECTID
+          - name: Shooting
+          - name: occ_id
+          - name: hate_crime
+          - name: case_status
+          - name: occ_type
+          - name: rep_date
+            description: "Reporting date of extract"
