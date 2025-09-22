@@ -37,7 +37,8 @@ df_ytd = df_ytd.rename(columns={
     'attributes.occ_id': 'occ_id',
     'attributes.hate_crime': 'hate_crime',
     'attributes.case_status': 'case_status',
-    'attributes.occ_type': 'occ_type'
+    'attributes.occ_type': 'occ_type',
+    'attributes.rep_date': 'rep_date'
 })
 
 # -----------------------------
