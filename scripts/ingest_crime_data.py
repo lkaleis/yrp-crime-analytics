@@ -24,6 +24,8 @@ else:
             "resultOffset": offset
         }
         response = requests.get(url, params=params)
+        print(response.status_code, response.text)  # Add this line
+
         features = response.json()["features"]
         if not features:  # no more data
             break
