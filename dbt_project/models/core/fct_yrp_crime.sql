@@ -1,10 +1,21 @@
-with historical as (
-    select * from {{ ref('stg_yrp_crime_historical') }}
-),
-ytd as (
-    select * from {{ ref('stg_yrp_crime_ytd') }}
-)
+{{ config(
+    materialized='table',
+    unique_key='uniqueidentifier'
+) }}
 
-select * from historical
-union all
-select * from ytd
+select 
+        "uniqueidentifier",
+        occ_date,
+        case_type_pubtrans,
+        "locationcode",
+        municipality,
+        "special_grouping",
+        "objectid",
+        shooting,
+        occ_id,
+        hate_crime,
+        case_status,
+        occ_type,
+        rep_date,
+        run_date
+    from {{ ref('stg_yrp_crime_union') }}

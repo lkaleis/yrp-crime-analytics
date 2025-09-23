@@ -1,16 +1,18 @@
+{{ config(materialized='table') }}
+
 select
-    "UniqueIdentifier",
+    "uniqueidentifier",
     occ_date,
     case_type_pubtrans,
-    "LocationCode",
+    "locationcode",
     municipality,
-    "Special_grouping",
-    "OBJECTID",
-    Shooting,
+    "special_grouping",
+    "objectid",
+    shooting,
     occ_id,
     hate_crime,
     case_status,
     occ_type,
     rep_date,
     run_date
-from {{ source('york_crime', 'stg_yrp_crime_ytd') }}
+from {{ source('staging', 'stg_yrp_crime_ytd') }}

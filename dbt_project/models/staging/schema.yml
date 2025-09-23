@@ -1,7 +1,8 @@
 version: 2
 
 sources:
-  - name: york_crime        # source schema (your database schema name)
+  - name: staging        # source schema (your database schema name)
+    database: "york_crime"  
     schema: public          # adjust if not in "public"
     tables:
       - name: stg_yrp_crime_historical
