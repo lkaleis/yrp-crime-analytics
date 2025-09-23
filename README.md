@@ -223,7 +223,8 @@ yrp-crime-analytics
 ├── scripts
 │   ├── ingest_crime_data.py
 │   ├── ingest_ytd_crime_data.py
-│   └── load_to_db.py
+│   ├── load_historical_to_db.py
+│   └── load_ytd_to_db.py
 ├── dbt_project
 │   ├── models
 │   │   ├── staging
