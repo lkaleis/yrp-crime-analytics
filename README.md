@@ -216,9 +216,24 @@ dbt test
 
 ## 📂 Project Structure
 
-yrp-crime-analytics/ ├── data/ │ └── raw/ # Raw CSV files ├── scripts/ │ ├── ingest_historical_crime_data.py # Historical ingestion │ ├── ingest_ytd_crime_data.py # YTD ingestion │ ├── load_ytd_to_db.py
-│ └── load_historical_to_db.py # Load into PostgreSQL ├── dbt_project/ │ ├── models/ # dbt models │ ├── seeds/ # dbt seeds (if any) │ └── dbt_project.yml ├── requirements.txt └── README.md
-
+```bash
+yrp-crime-analytics
+├── data
+│   └── raw
+├── scripts
+│   ├── ingest_crime_data.py
+│   ├── ingest_ytd_crime_data.py
+│   └── load_to_db.py
+├── dbt_project
+│   ├── models
+│   │   ├── staging
+│   │   └── core
+│   ├── seeds
+│   └── dbt_project.yml
+├── requirements.txt
+├── docker-compose.yml
+└── README.md
+```
 
 ## 🛠 Troubleshooting
 
