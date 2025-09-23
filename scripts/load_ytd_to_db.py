@@ -26,14 +26,14 @@ df_ytd = pd.read_csv(ytd_csv)
 # Rename columns
 # -----------------------------
 df_ytd = df_ytd.rename(columns={
-    'attributes.UniqueIdentifier': 'UniqueIdentifier',
+    'attributes.UniqueIdentifier': 'uniqueidentifier',
     'attributes.occ_date': 'occ_date',
     'attributes.case_type_pubtrans': 'case_type_pubtrans',
-    'attributes.LocationCode': 'LocationCode',
+    'attributes.LocationCode': 'locationcode',
     'attributes.municipality': 'municipality',
-    'attributes.Special_grouping': 'Special_grouping',
-    'attributes.OBJECTID': 'OBJECTID',
-    'attributes.Shooting': 'Shooting',
+    'attributes.Special_grouping': 'special_grouping',
+    'attributes.OBJECTID': 'objectid',
+    'attributes.Shooting': 'shooting',
     'attributes.occ_id': 'occ_id',
     'attributes.hate_crime': 'hate_crime',
     'attributes.case_status': 'case_status',
@@ -44,14 +44,14 @@ df_ytd = df_ytd.rename(columns={
 # -----------------------------
 # Assign proper types
 # -----------------------------
-df_ytd['UniqueIdentifier'] = df_ytd['UniqueIdentifier'].astype(str)
+df_ytd['uniqueidentifier'] = df_ytd['uniqueidentifier'].astype(str)
 df_ytd['occ_date'] = pd.to_datetime(df_ytd['occ_date'], unit='ms', errors='coerce')
 df_ytd['case_type_pubtrans'] = df_ytd['case_type_pubtrans'].astype(str)
-df_ytd['LocationCode'] = df_ytd['LocationCode'].astype(str)
+df_ytd['locationCode'] = df_ytd['locationcode'].astype(str)
 df_ytd['municipality'] = df_ytd['municipality'].astype(str)
-df_ytd['Special_grouping'] = df_ytd['Special_grouping'].astype(str)
-df_ytd['OBJECTID'] = pd.to_numeric(df_ytd['OBJECTID'], errors='coerce').astype('Int64')
-df_ytd['Shooting'] = df_ytd['Shooting'].astype(str)
+df_ytd['special_grouping'] = df_ytd['special_grouping'].astype(str)
+df_ytd['objectid'] = pd.to_numeric(df_ytd['objectid'], errors='coerce').astype('Int64')
+df_ytd['shooting'] = df_ytd['shooting'].astype(str)
 df_ytd['occ_id'] = df_ytd['occ_id'].astype(str)
 df_ytd['hate_crime'] = df_ytd['hate_crime'].astype(str)
 df_ytd['case_status'] = df_ytd['case_status'].astype(str)
