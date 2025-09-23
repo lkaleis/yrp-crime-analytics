@@ -195,20 +195,20 @@ dbt docs generate
 
 Typical run sequence:
 
-# Start DB
+**Start DB**
 docker start yrp-postgres
 
-# Activate environment
+**Activate environment**
 source .venv/bin/activate
 
-# Ingest raw data
+**Ingest raw data**
 python scripts/ingest_crime_data.py
 python scripts/ingest_ytd_crime_data.py
 
-# Load into DB
+**Load into DB**
 python scripts/load_to_db.py
 
-# Run dbt transformations
+**Run dbt transformations**
 cd dbt_project
 dbt run
 dbt test
@@ -216,36 +216,22 @@ dbt test
 
 ## 📂 Project Structure
 
-yrp-crime-analytics/
-│── data/
-│   └── raw/                      # Raw CSV files
-│── scripts/
-│   ├── ingest_historical_crime_data.py      # Historical ingestion
-│   ├── ingest_ytd_crime_data.py  # YTD ingestion
-│   ├── load_ytd_to_db.py  
-│   └── load_historical_to_db.py             # Load into PostgreSQL
-│── dbt_project/
-│   ├── models/                   # dbt models
-│   ├── seeds/                    # dbt seeds (if any)
-│   └── dbt_project.yml
-│── requirements.txt
-│── README.md
+yrp-crime-analytics/ ├── data/ │ └── raw/ # Raw CSV files ├── scripts/ │ ├── ingest_historical_crime_data.py # Historical ingestion │ ├── ingest_ytd_crime_data.py # YTD ingestion │ ├── load_ytd_to_db.py
+│ └── load_historical_to_db.py # Load into PostgreSQL ├── dbt_project/ │ ├── models/ # dbt models │ ├── seeds/ # dbt seeds (if any) │ └── dbt_project.yml ├── requirements.txt └── README.md
 
 
 ## 🛠 Troubleshooting
 
 dbt can’t find dbt_project.yml
-→ Ensure you cd into dbt_project/ before running dbt.
+- Ensure you cd into dbt_project/ before running dbt.
+
 Port conflicts
-→ If 5432 is in use, change the -p flag in Docker run command (e.g. -p 5433:5432).
+- If 5432 is in use, change the -p flag in Docker run command (e.g. -p 5433:5432).
 
 
 ## 📈 Next Steps
 
-Add Airflow DAGs for orchestration.
-
-Automate monthly YTD refresh.
-
-Deploy dbt to dbt Cloud or CI/CD pipeline.
-
-Build dashboards on top of fact tables (Metabase, Looker, etc.)
+1. Add Airflow DAGs for orchestration.
+2. Automate monthly YTD refresh.
+3. Deploy dbt to dbt Cloud or CI/CD pipeline.
+4. Build dashboards on top of fact tables (Metabase, Looker, etc.)
