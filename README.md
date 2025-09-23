@@ -103,20 +103,24 @@ dbt-postgres
 
 ### Docker + PostgreSQL
 
-Start PostgreSQL:
+We use a docker-compose.yml file to start the PostgreSQL database. 
 
-docker run --name yrp-postgres \
-  -e POSTGRES_USER=admin \
-  -e POSTGRES_PASSWORD=admin \
-  -e POSTGRES_DB=york_crime \
-  -p 5432:5432 \
-  -d postgres:15
+Start the database:
 
+```bash
+docker-compose up -d
+```
 
-Check it’s running:
+Check running containers:
 
 ```bash
 docker ps
+```
+
+Stop the services:
+
+```bash
+docker-compose down
 ```
 
 ### dbt Setup
