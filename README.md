@@ -176,6 +176,9 @@ This creates/updates:
 
 ## 🔄 dbt Models
 
+dbt lineage looks as follows:
+![dbt pipeline](images/dbt-dag_yrp.png)
+
 Run models
 
 ```bash
@@ -189,10 +192,11 @@ Run tests
 dbt test
 ```
 
-Generate docs
+Generate docs and view through browser
 
 ```bash
 dbt docs generate
+dbt docs serve
 ```
 
 ## 🚀 Workflow
